@@ -3,7 +3,6 @@ Given an array of integers and a positive integer , determine the number of  pai
 Example
 
 
-
 Three pairs meet the criteria:  and .
 
 Function Description
