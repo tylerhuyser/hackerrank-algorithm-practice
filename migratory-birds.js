@@ -26,7 +26,7 @@ function migratoryBirds(arr) {
     }
     
     return mostFrequentBirdID
-    
+  } 
     
     
     ------
@@ -57,5 +57,5 @@ function migratoryBirds(arr) {
     })
     
     return mostFrequentBirdID
-}
-}
+  }
+
