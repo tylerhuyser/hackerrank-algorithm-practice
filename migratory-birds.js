@@ -26,4 +26,36 @@ function migratoryBirds(arr) {
     }
     
     return mostFrequentBirdID
+    
+    
+    
+    ------
+    ALTERNATE SOLUTION
+    ------
+    
+    function migratoryBirds(arr) {
+    
+    function compare(a, b) {
+        return a - b;
+    }
+    
+    let sortedArray = arr.sort(compare)
+    
+    let mostFrequentBirdID = sortedArray[0]
+    let mostFrequentBirdCount = sortedArray.filter(bird => bird === mostFrequentBirdID).length
+
+    sortedArray.forEach((bird) => {
+        if (bird === mostFrequentBirdID) {
+            return
+        } else {
+            let filteredArray = sortedArray.filter(element => element === bird)
+            if (filteredArray.length > mostFrequentBirdCount) {
+                mostFrequentBirdID = bird
+                mostFrequentBirdCount = filteredArray.length
+            }
+        }
+    })
+    
+    return mostFrequentBirdID
+}
 }
