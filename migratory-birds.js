@@ -1,3 +1,27 @@
+------
+FINAL ANSWER
+-----
+ function migratoryBirds(arr) {
+    
+    let mostFrequentBirdID
+    let mostFrequentBirdCount = 0
+    
+    for (let i = 1; i < 6; i++) {
+        let filteredArray = arr.filter(bird => bird === i)
+        if (filteredArray.length > mostFrequentBirdCount) {
+                mostFrequentBirdID = i
+                mostFrequentBirdCount = filteredArray.length 
+        }
+    }
+    
+    return mostFrequentBirdID
+
+}
+
+------
+TEMP ANSWER
+----=
+
 function migratoryBirds(arr) {
 
     function compare(a, b) {
