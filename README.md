@@ -1,2 +1,2 @@
 # hackerrank-algorithm-practice
-Algorithms from HackerRank with solutions.
+Algorithms from HackerRank with solutions. 
