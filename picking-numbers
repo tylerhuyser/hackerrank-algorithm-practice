@@ -1,0 +1,23 @@
+function pickingNumbers(a) {
+    // Write your code here
+    
+    let length = 0
+    
+    a.map((currentNumber, index) => {
+        
+        let integerArray = [currentNumber]
+        
+        for (let i = 0; i < a.length; i++) {
+             if (i !== index && (a[i] + 1 === currentNumber || a[i] - 1 === currentNumber || a[i] === currentNumber)) {
+                integerArray.push(a[i])
+            }
+        }
+        
+        if (integerArray.length > length) {
+            length = integerArray.length
+        }
+    })
+    
+    return length
+
+}
