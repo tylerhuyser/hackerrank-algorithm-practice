@@ -69,22 +69,27 @@ let finalGrid = grid
 // 2. Last Group of Cells in Grid (i.e., Last Index
 // 3. Border cells (i.e., the first and last index of each Grid index)
 
-let gridSize = n ** 2
-let borderCells = 2n - 2(n - 2)
-let potentialCavities = gridSize - borderCells
+// ---
 
-for (let i = 1; i < grid.length - 2; i++) {
+// Efficient Solution
 
-  let previousRow = grid[i - 1]
-  let currentRow = grid[i]
-  let nextRow = grid [i + 1]
+function cavityMap(grid) {
+    const n = grid.length;
 
-  for (let j = 1; j < currentRow.length - 2; j++ {
+    for (let i = 1; i < n - 1; i++) {
+        for (let j = 1; j < n - 1; j++) {
+            const current = parseInt(grid[i][j]);
+            const top = parseInt(grid[i - 1][j]);
+            const bottom = parseInt(grid[i + 1][j]);
+            const left = parseInt(grid[i][j - 1]);
+            const right = parseInt(grid[i][j + 1]);
 
-    let currentCell = currentRow[j]
+            if (current > top && current > bottom && current > left && current > right) {
+                grid[i] = grid[i].substring(0, j) + 'X' + grid[i].substring(j + 1);
+            }
+        }
+    }
 
-      if (currentCell > currentRow[j - 1] && currentCell > currentRow[j + 1] && currentCell > previousRow[j] && currentCell > nextRow[j]) {
-        
-      }
-  }
+    return grid;
 }
+    
