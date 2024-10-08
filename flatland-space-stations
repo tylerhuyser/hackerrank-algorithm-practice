@@ -1,0 +1,28 @@
+// Solution:
+
+function flatlandSpaceStations(n, c) {
+    
+    let totalCities = n
+    
+    let spaceStations = c.sort((a,b) => a - b)
+    let maxDistance = 0
+    let previousStation = 0
+
+    console.log(spaceStations)
+    console.log(totalCities - spaceStations[spaceStations.length - 1] - 1)
+    
+    maxDistance = Math.max(0, spaceStations[0], totalCities - spaceStations[spaceStations.length - 1] - 1)
+    
+    for (let station of spaceStations) {
+        console.log(`Current Iteration: ${station}`)
+        let currentStation = station        
+        console.log(`Current Station: ${currentStation}`)
+        
+        maxDistance = Math.max(maxDistance, Math.floor((currentStation - previousStation) / 2))
+
+        
+        previousStation = currentStation
+    }
+
+    return maxDistance
+}
