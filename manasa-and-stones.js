@@ -20,7 +20,9 @@ function stones(n, a, b) {
     
     for (let i = 0; i < totalStones; i++) {
         let permutation = differenceA * (nonZeroStones - i) + differenceB * (i)
-        potentialAnswers.push(permutation)
+        if (!potentialAnswers.includes(permutation)) {
+            potentialAnswers.push(permutation)
+        }
         console.log(potentialAnswers)
     }
     
