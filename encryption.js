@@ -69,3 +69,27 @@ function encryption(s) {
 
     return encryptedString
 }
+
+
+//  More Efficient Solution
+
+function encryption(s) {
+    s = s.replace(/\s/g, ""); // Remove spaces
+    let rows = Math.floor(Math.sqrt(s.length));
+    let columns = Math.ceil(Math.sqrt(s.length));
+
+    if (rows * columns < s.length) {
+        rows++;
+    }
+
+    let result = [];
+    for (let i = 0; i < columns; i++) {
+        let word = "";
+        for (let j = i; j < s.length; j += columns) {
+            word += s[j];
+        }
+        result.push(word);
+    }
+
+    return result.join(" ");
+}
