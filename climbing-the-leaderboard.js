@@ -1,3 +1,40 @@
+// New Personal Solution (October):
+
+function climbingLeaderboard(ranked, player) {
+    
+    console.log(`Initial Rankings: ${ranked}`)
+    
+    const uniqueRankings = [... new Set(ranked)]
+    console.log(`Unique Rankings: ${uniqueRankings}`)
+    
+    const sortedUniqueRankings = uniqueRankings.sort((a, b) => b - a)
+    console.log(`Sorted and Unique Rankings: ${sortedUniqueRankings}`)
+    
+    let playerScores = player
+    console.log(`Player Scores: ${playerScores}`)
+    const playerRankings = []
+    console.log(`Initial Player Rankings: ${playerRankings}`)
+    
+    let currentHighScoreIndex = sortedUniqueRankings.length - 1
+    console.log(`Current High Score Comparison Index: ${currentHighScoreIndex}`)
+    
+    for (let score of playerScores) {
+        
+        while (currentHighScoreIndex >= 0 && score >= sortedUniqueRankings[currentHighScoreIndex]) {
+            console.log(`Still Analyzing Rankings`)
+            currentHighScoreIndex--
+            console.log(`New Index: ${currentHighScoreIndex}`)
+        }
+        
+        playerRankings.push(currentHighScoreIndex + 2)
+        console.log(`New Player Rankings: ${playerRankings}`)
+        
+    }
+    
+    return playerRankings
+  
+}
+
 // Personal Solution (Too Much Processing Time):
 
 function climbingLeaderboard(ranked, player) {
