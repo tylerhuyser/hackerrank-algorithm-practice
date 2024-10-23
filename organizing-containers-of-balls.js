@@ -31,9 +31,13 @@ function organizingContainers(containers) {
     totalBallsPerType.sort()
     
     for (let i = 0; i < totalContainers; i++) {
-        if (ballsPerContainer[i] !== totalBallsPerType[i]) return 'Impossible';
+        if (ballsPerContainer[i] !== totalBallsPerType[i]) {
+            console.log('Impossible')
+            return 'Impossible';
+        }
     }
-    
+
+    console.log('Possible')
     return 'Possible'
     
 }
