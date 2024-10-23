@@ -73,3 +73,36 @@ function queensAttack(n, k, r_q, c_q, obstacles) {
     return totalMoves
 
 }
+
+// Researched Solution:
+
+function queensAttack(n, k, r_q, c_q, obstacles) {
+  let total = 0;
+
+  // Create a set for faster obstacle lookup
+  const obstacleSet = new Set(obstacles.map(obs => obs.join(',')));
+  console.log(obstacleSet)
+
+  // Directions for the queen's movements
+  const directions = [
+    [1, 0], [-1, 0], [0, 1], [0, -1],
+    [1, 1], [1, -1], [-1, 1], [-1, -1]
+  ];
+
+  for (const [dx, dy] of directions) {
+    let x = r_q + dx;
+    let y = c_q + dy;
+
+    while (x >= 1 && x <= n && y >= 1 && y <= n) {
+      if (obstacleSet.has(`${x},${y}`)) {
+        break; // Obstacle found
+      }
+      total++;
+      x += dx;
+      y += dy;
+    }
+  }
+
+  return total;
+
+}
