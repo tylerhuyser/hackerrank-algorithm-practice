@@ -132,7 +132,7 @@ function bomberMan(n, grid) {
                         let down = finalGrid[Math.min(i + 1, (finalGrid.length - 1))].split("")
                         down[j] = "."
                         
-                        finalGrid[Math.floor(i + 1, finalGrid.length - 1)] = down.join("")
+                        finalGrid[Math.min(i + 1, finalGrid.length - 1)] = down.join("")
                         
                         
                     }
